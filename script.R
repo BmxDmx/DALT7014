@@ -77,7 +77,7 @@ temp<- melt(dataDf,id.vars='sentiment_value')
 
 plot<-ggplot(temp,aes(x=sentiment_value,y=value,fill=variable))+
   geom_bar(stat='identity',position='dodge')
-ggsave(format(Sys.Date(), "SentAnalysis-%Y-Week-%V.png"),plot = plot)
+ggsave(format(Sys.Date(), "SentAnalysis-%Y-Week-%V-Day-%A.png"),plot = plot)
 
 
 
@@ -90,6 +90,6 @@ scoreDf$mean_description<- sum(dataDf$sentiment_value* dataDf$occurrences_in_Des
 
 
 
-dataDf|>write_csv(format(Sys.Date(), "DataDf-%Y-Week-%V.csv"))
-scoreDf|>write_csv(format(Sys.Date(), "ScoreDf-%Y-Week-%V.csv"))
+dataDf|>write_csv(format(Sys.Date(), "DataDf-%Y-Week-%V-Day-%A.csv"))
+scoreDf|>write_csv(format(Sys.Date(), "ScoreDf-%Y-Week-%V-Day-%A.csv"))
 writeLines(format(Sys.time()), "timestamp.txt") # Added to make sure there is always a change to commit
