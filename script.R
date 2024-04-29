@@ -11,9 +11,9 @@ require_packages(c(
   "ggplot2",
   "reshape2"
 ))
+library(reshape2)
 
-
-afinn <- get_sentiments("afinn")
+afinn <- read_csv("afinn.csv")
 
 # HTTP GET Request
 a <- GET("http://rss.cnn.com/rss/cnn_latest.rss")
